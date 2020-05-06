@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,10 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef, AfterViewI
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
+  show = false;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
   }
@@ -24,5 +25,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       const element = document.getElementById('header');
       element.classList.remove('navbar_fixed');
     }
- }
+  }
+
+  showMenu() {
+    this.show = !this.show;
+  }
 }
